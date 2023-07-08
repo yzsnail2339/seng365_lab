@@ -21,11 +21,11 @@ const User = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [id]); // add id as a dependency
+    }, [id]);
 
     useEffect(() => {
         getUser();
-    }, [getUser]); // add getUser as a dependency
+    }, [getUser]);
 
     const deleteUser = (user: User) => {
         axios
@@ -66,8 +66,8 @@ const User = () => {
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
-                                    Delete
+                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => deleteUser(user)}>
+                                        Delete User
                                     </button>
                                 </div>
                             </div>
